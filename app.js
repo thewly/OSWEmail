@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 app.get('/replace', (req, res) => {
   console.log('query', req.query);
 
-  fs.readFile('Template_EE-SS_modified.html', 'utf8', function (err,data) {
+  fs.readFile('Template_EE-OSW_MODIFIED.html', 'utf8', function (err,data) {
   // fs.readFile('input.html', 'utf8', function (err, data) {
     if (err) {
       return console.log(err);
@@ -53,14 +53,17 @@ app.get('/replace', (req, res) => {
     var SLregex = /schoollink/gi;
     var UTMregex = /111111/gi;
     var SMIregex = /222222/gi;
-
+    var footregex = /0000ff/gi;
+    
     var result = data.replace(SLregex, req.query.schoollink);
+    result = data.replace(footregex, req.query.buttoncolor);
     // result = result.replace(/asdf/g, req.query.text);
     result = result.replace(SNregex, req.query.schoolname);
     result = result.replace('Order your Official School Name Ring now to ensure ceremony delivery!', req.query.schoolnamehead);
     result = result.replace(UTMregex, req.query.UTM);
     result = result.replace(SMIregex, req.query.SMI);
     result = result.replace('[Nickname]', req.query.nickname);
+    result = result.replace('**http://www.balfour.com/schoolname**', req.query.footerURL);
     result = result.replace('ONE DAY ONLY', req.query.days);
     result = result.replace('**Day**, **Month** **#**', req.query.day);
     // result = result.replace('**Month**', req.query.month);
@@ -68,12 +71,13 @@ app.get('/replace', (req, res) => {
     result = result.replace('**00**', req.query.starthour);
     result = result.replace('**a.m.**', req.query.am);
     result = result.replace('**00**', req.query.endhour);
+    result = result.replace('0019.XXXXX', req.query.MJNumber);
     result = result.replace('**p.m.**', req.query.pm);
     result = result.replace('**Location**', req.query.location);
     result = result.replace(regex, req.query.buttoncolor);
 
-    fs.writeFileSync('XXXX_EE-SS.html', result);
-    res.download('XXXX_EE-SS.html');
+    fs.writeFileSync('XXXX_EE-OSW.html', result);
+    res.download('XXXX_EE-OSW.html');
   });
 
 });

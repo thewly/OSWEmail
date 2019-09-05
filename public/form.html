@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-  <title>SS Email Generator</title>
+  <title>OSW Email Generator</title>
   <style>
     .space {
       margin-top: 1rem;
@@ -35,7 +35,7 @@
       <div class="card">
         <div class="row">
           <div class="col text-center">
-            <h3>SS Email Generator</h3>
+            <h3>OSW Email Generator</h3>
           </div>
         </div>
         <form method="GET" action="/replace">
@@ -68,8 +68,13 @@
                   <input type="text" id="nickname" name="nickname" class="form-control form-control-sm" placeholder="[Nickname]">
                 </div>
                 <div class="space">
-                  <label for="buttoncolor">Button Color:</label>
+                  <label for="buttoncolor">Button & Footer Color:</label>
                   <input type="text" id="buttoncolor" name="buttoncolor" class="form-control form-control-sm" value="000000"
+                    required>
+                </div>
+                <div class="space">
+                  <label for="footerURL">Footer URL:</label>
+                  <input type="text" id="footerURL" name="footerURL" class="form-control form-control-sm" value="http://www.balfour.com"
                     required>
                 </div>
                 
@@ -112,6 +117,10 @@
                 <div class="space">
                   <label for="location">Location:</label>
                   <input type="text" id="location" name="location" class="form-control form-control-sm" placeholder="location" required>
+                </div>
+                <div class="space">
+                  <label for="MJNumber">Month & Job Number:</label>:</label>
+                  <input type="text" id="MJNumber" name="MJNumber" class="form-control form-control-sm" placeholder="1031.6666" required>
                 </div>
               </div>
             </div>
