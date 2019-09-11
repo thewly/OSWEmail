@@ -54,8 +54,9 @@ app.get('/replace', (req, res) => {
     var UTMregex = /111111/gi;
     var SMIregex = /222222/gi;
     var footregex = /0000ff/gi;
+    var SchoolLinkregex = /GDit/gi;
     
-    var result = data.replace(SLregex, req.query.schoollink);
+    var result = data.replace(SchoolLinkregex, req.query.schoollink);
     result = data.replace(footregex, req.query.buttoncolor);
     // result = result.replace(/asdf/g, req.query.text);
     result = result.replace('**http://www.balfour.com/schoolname**', req.query.footerURL);
