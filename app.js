@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 app.get('/replace', (req, res) => {
   console.log('query', req.query);
 
-  fs.readFile('Template_EE-OSW_MODIFIED.html', 'utf8', function (err,data) {
+  fs.readFile('Template_EE-OSW.html', 'utf8', function (err,data) {
   // fs.readFile('input.html', 'utf8', function (err, data) {
     if (err) {
       return console.log(err);
@@ -68,9 +68,9 @@ app.get('/replace', (req, res) => {
     result = result.replace('**Day**, **Month** **#**', req.query.day);
     // result = result.replace('**Month**', req.query.month);
     // result = result.replace('**#**', req.query.number);
-    result = result.replace('**00**', req.query.starthour);
+    result = result.replace('**s00**', req.query.starthour);
     result = result.replace('**a.m.**', req.query.am);
-    result = result.replace('**00**', req.query.endhour);
+    result = result.replace('**e00**', req.query.endhour);
     result = result.replace('0019.XXXXX', req.query.MJNumber);
     result = result.replace('**p.m.**', req.query.pm);
     result = result.replace('**Location**', req.query.location);
