@@ -55,25 +55,25 @@ app.get('/replace', (req, res) => {
     var SMIregex = /222222/gi;
     var footregex = /0000ff/gi;
     
-    var result = data.replace(SLregex, req.query.schoollink);
-    result = result.replace(footregex, req.query.buttoncolor);
-    result = result.replace('**http://www.balfour.com/schoolname**', req.query.footerURL);
-    result = result.replace(SNregex, req.query.schoolname);
-    result = result.replace('Order your Official [School] Ring to ensure ceremony delivery!', req.query.schoolnamehead);
-    result = result.replace(UTMregex, req.query.UTM);
-    result = result.replace(SMIregex, req.query.SMI);
-    result = result.replace('Be part of a timeless [Nickname] tradition. Order your personalized ring in time for graduation to show your pride and celebrate your success with fellow classmates.', req.query.nickname);
-    result = result.replace('ONE DAY ONLY', req.query.days);
-    result = result.replace('**Day**, **Month** **#**', req.query.day);
-    result = result.replace('**s00**', req.query.starthour);
-    result = result.replace('**a.m.**', req.query.am);
-    result = result.replace('**e00**', req.query.endhour);
-    result = result.replace('0019.XXXXX', req.query.MJNumber);
-    result = result.replace('**p.m.**', req.query.pm);
-    result = result.replace('**Location**', req.query.location);
-    result = result.replace(regex, req.query.buttoncolor);
+    var modifiedEmail = data.replace(SLregex, req.query.schoollink);
+    modifiedEmail = modifiedEmail.replace(footregex, req.query.buttoncolor);
+    modifiedEmail = modifiedEmail.replace('**http://www.balfour.com/schoolname**', req.query.footerURL);
+    modifiedEmail = modifiedEmail.replace(SNregex, req.query.schoolname);
+    modifiedEmail = modifiedEmail.replace('Order your Official [School] Ring to ensure ceremony delivery!', req.query.schoolnamehead);
+    modifiedEmail = modifiedEmail.replace(UTMregex, req.query.UTM);
+    modifiedEmail = modifiedEmail.replace(SMIregex, req.query.SMI);
+    modifiedEmail = modifiedEmail.replace('Be part of a timeless [Nickname] tradition. Order your personalized ring in time for graduation to show your pride and celebrate your success with fellow classmates.', req.query.nickname);
+    modifiedEmail = modifiedEmail.replace('ONE DAY ONLY', req.query.days);
+    modifiedEmail = modifiedEmail.replace('**Day**, **Month** **#**', req.query.day);
+    modifiedEmail = modifiedEmail.replace('**s00**', req.query.starthour);
+    modifiedEmail = modifiedEmail.replace('**a.m.**', req.query.am);
+    modifiedEmail = modifiedEmail.replace('**e00**', req.query.endhour);
+    modifiedEmail = modifiedEmail.replace('0019.XXXXX', req.query.MJNumber);
+    modifiedEmail = modifiedEmail.replace('**p.m.**', req.query.pm);
+    modifiedEmail = modifiedEmail.replace('**Location**', req.query.location);
+    modifiedEmail = modifiedEmail.replace(regex, req.query.buttoncolor);
 
-    fs.writeFileSync('XXXX_EE-OSW.html', result);
+    fs.writeFileSync('XXXX_EE-OSW.html', modifiedEmail);
     res.download('XXXX_EE-OSW.html');
   });
 
